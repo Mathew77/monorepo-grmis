@@ -53,7 +53,7 @@ export function HeaderSection({
       sx={[
         (theme) => ({
           ...(isOffset && {
-            '--color': `var(--offset-color, ${theme.vars.palette.text.primary})`,
+            '--color': `var(--offset-color, ${theme.vars.palette.text.secondary})`,
           }),
         }),
         ...(Array.isArray(sx) ? sx : [sx]),

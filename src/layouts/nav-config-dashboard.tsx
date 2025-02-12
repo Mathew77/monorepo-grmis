@@ -68,9 +68,9 @@ export const navData: NavSectionProps['data'] = [
   {
     items: [{ title: 'My Application', path: paths.applications.root, icon: ICONS.tour }],
   },
-  {
-    items: [{ title: 'My Tasks', path: paths.home.root, icon: ICONS.job }],
-  },
+  // {
+  //   items: [{ title: 'My Tasks', path: paths.home.root, icon: ICONS.job }],
+  // },
   // {
   //   subheader: 'Fund Management',
   //   items: [

@@ -35,10 +35,10 @@ export function dashboardNavColorVars(
     case 'integrate':
       return {
         layout: {
-          '--layout-nav-bg': palette.background.default,
+          '--layout-nav-bg': '#011E62', //Header Color
           '--layout-nav-horizontal-bg': '#fff',
           '--layout-nav-border-color': varAlpha(palette.grey['500Channel'], 0.12),
-          '--layout-nav-text-primary-color': palette.text.primary,
+          '--layout-nav-text-primary-color': '#fff',
           '--layout-nav-text-secondary-color': palette.text.secondary,
           '--layout-nav-text-disabled-color': palette.text.disabled,
           ...theme.applyStyles('dark', {
@@ -51,10 +51,10 @@ export function dashboardNavColorVars(
     case 'apparent':
       return {
         layout: {
-          '--layout-nav-bg': palette.grey[900],
+          '--layout-nav-bg': '#011E62',//Header Color
           '--layout-nav-horizontal-bg':'#011E62',
           '--layout-nav-border-color': 'transparent',
-          '--layout-nav-text-primary-color': palette.common.white,
+          '--layout-nav-text-primary-color': '#fff',
           '--layout-nav-text-secondary-color': palette.grey[500],
           '--layout-nav-text-disabled-color': palette.grey[600],
           ...theme.applyStyles('dark', {
@@ -64,12 +64,12 @@ export function dashboardNavColorVars(
         },
         section: {
           // caption
-          '--nav-item-caption-color': palette.grey[600],
+          '--nav-item-caption-color': '#fff',
           // subheader
-          '--nav-subheader-color': palette.grey[600],
+          '--nav-subheader-color': '#fff',
           '--nav-subheader-hover-color': palette.common.white,
           // item
-          '--nav-item-color': palette.grey[500],
+          '--nav-item-color': '#fff',
           '--nav-item-root-active-color': palette.primary.light,
           '--nav-item-root-open-color': palette.common.white,
           // bullet

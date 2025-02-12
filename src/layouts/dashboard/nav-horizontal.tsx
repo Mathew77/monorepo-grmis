@@ -52,7 +52,7 @@ export function NavHorizontal({
         sx={{
           px: 1.5,
           height: 'var(--layout-nav-horizontal-height)',
-          backgroundColor: 'var(--layout-nav-horizontal-bg)',
+          backgroundColor: '#011E62',
           backdropFilter: `blur(var(--layout-header-blur))`,
           WebkitBackdropFilter: `blur(var(--layout-header-blur))`,
         }}
