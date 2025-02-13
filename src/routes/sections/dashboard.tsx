@@ -16,10 +16,10 @@ import { usePathname } from '../hooks';
 
 const IndexPage = lazy(() => import('src/pages/home/index'));
 const FundOpportunities = lazy(() => import('src/pages/fund-opportunities/index'));
-const PageThree = lazy(() => import('src/pages/dashboard/three'));
-const PageFour = lazy(() => import('src/pages/dashboard/four'));
-const PageFive = lazy(() => import('src/pages/dashboard/five'));
-const PageSix = lazy(() => import('src/pages/dashboard/six'));
+// const PageThree = lazy(() => import('src/pages/dashboard/three'));
+// const PageFour = lazy(() => import('src/pages/dashboard/four'));
+// const PageFive = lazy(() => import('src/pages/dashboard/five'));
+// const PageSix = lazy(() => import('src/pages/dashboard/six'));
 
 // ----------------------------------------------------------------------
 
