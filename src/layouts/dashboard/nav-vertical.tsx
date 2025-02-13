@@ -10,6 +10,7 @@ import { Logo } from 'src/components/logo';
 import { Scrollbar } from 'src/components/scrollbar';
 import { NavSectionMini, NavSectionVertical } from 'src/components/nav-section';
 
+import UKLogo from './logo-single.png';
 import { layoutClasses } from '../core/classes';
 import { NavUserDetails } from '../components/nav-user-details';
 import { NavToggleButton } from '../components/nav-toggle-button';
@@ -44,7 +45,7 @@ export function NavVertical({
     <>
       {slots?.topArea ?? (
         <Box sx={{ pl: 3.5, pt: 2.5, pb: 1 }}>
-          <Logo />
+          <img src={UKLogo} alt="Logo" style={{ width: 'auto', height: '50px' }} />
         </Box>
       )}
 

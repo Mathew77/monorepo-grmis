@@ -94,8 +94,9 @@ export function DashboardLayout({
         </Alert>
       ),
       bottomArea: isNavHorizontal ? (
-        <NavHorizontal data={navData} layoutQuery={layoutQuery} cssVars={navVars.section} />
-      ) : null,
+        <></>
+      ) : // <NavHorizontal data={navData} layoutQuery={layoutQuery} cssVars={navVars.section} />
+      null,
       leftArea: (
         <>
           {/** @slot Nav mobile */}
@@ -107,12 +108,15 @@ export function DashboardLayout({
 
           {/** @slot Logo */}
           {isNavHorizontal && (
-            <Logo
-              sx={{
-                display: 'none',
-                [theme.breakpoints.up(layoutQuery)]: { display: 'inline-flex' },
-              }}
-            />
+            <>
+              <Logo
+                sx={{
+                  display: 'none',
+                  [theme.breakpoints.up(layoutQuery)]: { display: 'inline-flex' },
+                }}
+              />
+              <NavHorizontal data={navData} layoutQuery={layoutQuery} cssVars={navVars.section} />
+            </>
           )}
 
           {/** @slot Divider */}
@@ -124,10 +128,10 @@ export function DashboardLayout({
       rightArea: (
         <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0, sm: 0.75 } }}>
           {/** @slot Searchbar */}
-          {/* <Searchbar data={navData} /> */}
+          <Searchbar data={navData} />
 
           {/** @slot Language popover */}
-          {/* <LanguagePopover
+          <LanguagePopover
             data={[
               { value: 'en', label: 'English', countryCode: 'GB' },
               { value: 'fr', label: 'French', countryCode: 'FR' },
@@ -135,14 +139,13 @@ export function DashboardLayout({
               { value: 'cn', label: 'Chinese', countryCode: 'CN' },
               { value: 'ar', label: 'Arabic', countryCode: 'SA' },
             ]}
-          /> */}
+          />
 
           {/** @slot Notifications popover */}
           <NotificationsDrawer data={_notifications} />
 
           {/** @slot Settings button */}
-           {/* I commented the header icons */}
-          {/* <SettingsButton /> */}
+          <SettingsButton />
 
           {/** @slot Account drawer */}
           <AccountDrawer data={_account} />
@@ -158,7 +161,6 @@ export function DashboardLayout({
         slots={{ ...headerSlots, ...slotProps?.header?.slots }}
         slotProps={merge(headerSlotProps, slotProps?.header?.slotProps ?? {})}
         sx={slotProps?.header?.sx}
-        
       />
     );
   };
