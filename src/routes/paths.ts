@@ -52,6 +52,7 @@ export const paths = {
   // Fund Opportunities Links
   fund: {
     root: `${ROOTS.FUNDOPPORTUNITIES}/fund-opportunities`,
+    detail: `${ROOTS.FUNDOPPORTUNITIES}/fund-opportunities/detail`,
   },
   //My Applications
   applications: {
@@ -63,27 +64,4 @@ export const paths = {
   //   root: `${ROOTS.PROFILE}`,
   // },
   // Fund Management Links
-  administrator: {
-    root: `${ROOTS.PREAWARD}`,
-    users: {
-      root: `${ROOTS.ADMIN}users`,
-      create: `${ROOTS.ADMIN}user/details`,
-      edit: (id: string) => `${ROOTS.ADMIN}funds/details/${id}`,
-    },
-    sectors: {
-      root: `${ROOTS.ADMIN}sectors`,
-      create: `${ROOTS.ADMIN}sectors/new`,
-      edit: (id: string) => `${ROOTS.ADMIN}sectors/${id}`,
-    },
-    currency: {
-      root: `${ROOTS.ADMIN}currency`,
-      create: `${ROOTS.ADMIN}currency/new`,
-      edit: (id: string) => `${ROOTS.ADMIN}currency/${id}`,
-    },
-    country: {
-      root: `${ROOTS.ADMIN}country`,
-      create: `${ROOTS.ADMIN}country/new`,
-      edit: (id: string) => `${ROOTS.ADMIN}country/${id}`,
-    },
-  },
 };

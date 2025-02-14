@@ -32,25 +32,37 @@ export const Logo = forwardRef<HTMLAnchorElement, LogoProps>((props, ref) => {
   const PRIMARY_MAIN = theme.vars.palette.primary.main;
   const PRIMARY_DARKER = theme.vars.palette.primary.dark;
 
-
+  /*
+    * OR using local (public folder)
+    *
     const singleLogo = (
       <img
         alt="Single logo"
-        src={`${CONFIG.assetsDir}/logo/logo.png`}
+        src={`${CONFIG.assetsDir}/logo/logo-single.svg`}
         width="100%"
         height="100%"
       />
     );
 
-    // const fullLogo = (
-    //   <img
-    //     alt="Full logo"
-    //     src={`${CONFIG.assetsDir}/logo/logo-full.svg`}
-    //     width="100%"
-    //     height="100%"
-    //   />
-    // );
- 
+    const fullLogo = (
+      <img
+        alt="Full logo"
+        src={`${CONFIG.assetsDir}/logo/logo-full.svg`}
+        width="100%"
+        height="100%"
+      />
+    );
+    *
+    */
+    const singleLogo = (
+      <img
+        alt="Single logo"
+        src={`${CONFIG.assetsDir}/logo/logo-single.png`}
+        width="100%"
+        height="100%"
+      />
+    );
+
     const fullLogo = (
       <img
         alt="Full logo"
@@ -59,7 +71,6 @@ export const Logo = forwardRef<HTMLAnchorElement, LogoProps>((props, ref) => {
         height="100%"
       />
     );
-    
   // const singleLogo = (
   //   <svg
   //     width="100%"

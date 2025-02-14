@@ -27,17 +27,17 @@ const authJwt = {
     {
       path: 'sign-in',
       element: (
-        <GuestGuard>
-           <AuthSplitLayout
-            slotProps={{
-              section: { title: 'Hi, Welcome back' },
-            }}
-          >
-            <Jwt.SignInPage />
-          </AuthSplitLayout> 
+        // <GuestGuard>
+        //    <AuthSplitLayout
+        //     slotProps={{
+        //       section: { title: 'Hi, Welcome back' },
+        //     }}
+        //   >
+        //     <Jwt.SignInPage />
+        //   </AuthSplitLayout> 
          
-        </GuestGuard>
-        // <SigninView />
+        // </GuestGuard>
+         <SigninView />
       ),
     },
     {
