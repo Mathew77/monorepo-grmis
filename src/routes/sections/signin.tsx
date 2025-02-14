@@ -8,6 +8,9 @@ import { useRouter } from 'src/routes/hooks';
 
 import { CONFIG } from 'src/global-config';
 
+import { useAuthContext } from '../../auth/hooks';
+import { signInWithPassword } from '../../auth/context/jwt';
+
 const LoginContainer = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   maxWidth: 1048,
@@ -31,21 +34,26 @@ const InfoContainer = styled(Box)({
 });
 
 export function SigninView(){
+  
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+  const { checkUserSession } = useAuthContext();
+
+
+  const defaultValues = {
+    email: 'funds@ukpact.cc',
+    password: '@2Fund',
+  };
+
 
   const handleSubmit = async (event:any) => {
     event.preventDefault();
+    
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-      const data = await response.json();
-      console.log('Login Response:', data);
-      window.location.href="fund"
+      //alert('this')
+      await signInWithPassword({ email: defaultValues.email, password: defaultValues.password });
+      await checkUserSession?.();
+      router.refresh();
     } catch (error) {
       console.error('Login Error:', error);
     }
@@ -68,8 +76,8 @@ export function SigninView(){
               Please enter your details below:
             </Typography>
             <form onSubmit={handleSubmit}>
-              <TextField label="Email Address" variant="outlined" fullWidth sx={{ mb: 2 }} value={email} onChange={(e) => setEmail(e.target.value)} />
-              <TextField label="Password" type="password" variant="outlined" fullWidth sx={{ mb: 2 }} value={password} onChange={(e) => setPassword(e.target.value)} />
+              <TextField label="Email Address" variant="outlined" fullWidth sx={{ mb: 2 }} value={defaultValues.email}  />
+              <TextField label="Password" type="password" variant="outlined" fullWidth sx={{ mb: 2 }} value={defaultValues.password}  />
               <Box display="flex" justifyContent="space-between" sx={{ mb: 2 }}>
                 <Link href="#" variant="body2" color="#A8B3CF">Forgot password?</Link>
                 <Link href="#" variant="body2" color="#F44336">New User? Sign Up</Link>
