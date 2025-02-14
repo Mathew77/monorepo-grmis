@@ -1,15 +1,20 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 import { styled } from '@mui/material/styles';
 import { Box, AppBar, Toolbar, Typography, Container, Paper, Grid, TextField, Button, Link } from '@mui/material';
 
-import { useRouter } from 'src/routes/hooks';
+import { useSearchParams,useRouter } from 'src/routes/hooks';
 
 import { CONFIG } from 'src/global-config';
 
+import { SplashScreen } from 'src/components/loading-screen';
+
 import { useAuthContext } from '../../auth/hooks';
 import { signInWithPassword } from '../../auth/context/jwt';
+
+
+
 
 const LoginContainer = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
@@ -37,15 +42,33 @@ export function SigninView(){
   
   const router = useRouter();
 
-  const { checkUserSession } = useAuthContext();
+  const { loading, checkUserSession, authenticated } = useAuthContext();
 
+  const searchParams = useSearchParams();
+
+  const returnTo = searchParams.get('returnTo') || CONFIG.auth.redirectPath;
+  const [isChecking, setIsChecking] = useState<boolean>(true);
 
   const defaultValues = {
     email: 'funds@ukpact.cc',
     password: '@2Fund',
   };
 
+  const checkPermissions = async (): Promise<void> => {
+    if (loading) {
+      return;
+    }
 
+    if (authenticated) {
+      // Redirect authenticated users to the returnTo path
+      // Using `window.location.href` instead of `router.replace` to avoid unnecessary re-rendering
+      // that might be caused by the AuthGuard component
+      window.location.href = returnTo;
+      return;
+    }
+
+    setIsChecking(false);
+  };
   const handleSubmit = async (event:any) => {
     event.preventDefault();
     
@@ -54,11 +77,20 @@ export function SigninView(){
       await signInWithPassword({ email: defaultValues.email, password: defaultValues.password });
       await checkUserSession?.();
       router.refresh();
+
     } catch (error) {
       console.error('Login Error:', error);
     }
   };
 
+    useEffect(() => {
+      checkPermissions();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [authenticated, loading]);
+  
+    if (isChecking) {
+      return <SplashScreen />;
+    }
   return (
     <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
       <AppBar position="static" sx={{ backgroundColor: '#011E62', padding: 2 }} />

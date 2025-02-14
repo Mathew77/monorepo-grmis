@@ -37,7 +37,7 @@ const authJwt = {
         //   </AuthSplitLayout> 
          
         // </GuestGuard>
-        <SigninView />
+         <SigninView />
       ),
     },
     {

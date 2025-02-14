@@ -57,7 +57,7 @@ export const Logo = forwardRef<HTMLAnchorElement, LogoProps>((props, ref) => {
     const singleLogo = (
       <img
         alt="Single logo"
-        src={`${CONFIG.assetsDir}/logo/logo-single.png`}
+        src={`${CONFIG.assetsDir}/logo/logo.png`}
         width="100%"
         height="100%"
       />
