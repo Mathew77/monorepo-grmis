@@ -14,7 +14,7 @@ import { usePathname } from '../hooks';
 // ----------------------------------------------------------------------
 
 const FundOpportunitiesPage = lazy(() => import('src/pages/fund-opportunities/index'));
-
+const FundOpportunitiesView = lazy(() => import('src/sections/fund-opportunities/fund-opportunity-view-detail'));
 
 // ----------------------------------------------------------------------
 
@@ -39,6 +39,7 @@ export const fundOpportunitiesRoutes: RouteObject[] = [
     element: CONFIG.auth.skip ? layoutContent() : <AuthGuard>{layoutContent()}</AuthGuard>,
     children:[
         { path: 'fund-opportunities', element: <FundOpportunitiesPage /> },
+        { path: 'detail', element: <FundOpportunitiesView /> },
     ]
   },
 ];
